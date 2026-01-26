@@ -1,8 +1,436 @@
 ---
 title: "Written Notes"
+date-modified: last-modified
 format: 
   html:
     linkcolor: "#0000FF"
 ---
 
-## Coming soon!
+These notes are to support R users on how to:
+
+-   Create a Quarto website, and
+
+-   Host it on GitHub pages
+
+## Video Lecture
+
+{{< video https://youtu.be/s4jRj0wrtQg >}}
+
+## Quarto Basics
+
+Quarto is an open-source publishing system that is very similar to R Markdown. Quarto can be used to create interactive webpages and slide decks that you can use with R or Python to execute code!
+
+In this workshop, we will use Quarto to build a basic webpage, and host it on GitHub.
+
+### Step 1: Get Set-up with GitHub!
+
+If you don't already have a GitHub account connected to RStudio, please follow the steps laid out in Part 1 of my GitHub workshop notes: https://grcetmpk.github.io/ssc-virtualskills-feb2026/notes.html
+
+### Step 2: Install Quarto
+
+Before continuing, ensure that you've installed Quarto using [these directions](https://quarto.org/docs/get-started/).
+
+### Step 3: Create a Quarto Website
+
+[**Step 1.1:**]{.underline} In RStudio, create a New Project.
+
+-   Select "New Directory" and then find "Quarto Website".
+
+-   If given an option for version control, select Git. A simple build of a two paged website will generate.
+
+-   Name the project "yourusername.github.io" if you want a personal website, or any other project name.
+
+    -   NOTE: if you do not use "yourusername.github.io", the website will be at "yourusername.github.io/yourprojectname" by default.
+
+[**Step 1.2:**]{.underline} In the Terminal, run `touch .nojekyll` (Mac OS) or `copy NUL .nojekyll` to disable Jekyll.
+
+[**Step 1.3:**]{.underline} Within the RStudio project, navigate to the `_quarto.yml` file in your files (right hand pane). Under the `project:` preamble, add `output-dir: docs`.
+
+[**Step 1.4:**]{.underline} Navigate back to `index.qmd`. Save and click the Render button. A local version of this simple website will appear.
+
+Now, we should send this to GitHub so we can host our website on GitHub and make changes both locally and through GitHub. To do so, we need to connect this R Project with Github.
+
+[**Step 1.5:**]{.underline} When you made this project, you should have selected to use Git as a version control. If not, head to Tools \> Version control \> Project Setup and select Git as your version control. At this time, origin should be set to `none`.
+
+[**Step 1.6:**]{.underline} In the Console:
+
+-   Load in the `usethis` package with `library(usethis)`
+
+-   Run `use_git()` and select the option that will commit all changes
+
+-   Run `use_github()` to create a github repository with the same name as your R Project.
+
+[**Step 1.7:**]{.underline} Now will be working in the terminal to give commands to our computer to connect with Github. You can equivalently use the "Git" tab in RStudio to stage, commit, and push changes.
+
+-   SAVE ALL FILES. In the Terminal (beside the Console in RStudio)
+
+-   Run `git add .`
+
+-   Then, commit the changes of our website to Git. Type `git commit -m "initial commit"`
+
+    -   The `-m "<description>"` part adds the \<description\> of your changes.
+
+-   Push the changes using `git push origin main`. Head back to github to see new files added to your repository.
+
+[**Step 1.8:**]{.underline} See your new website
+
+-   Navigate to your repository on Github and click the three dots and head to the repository settings.
+
+-   Navigate to `pages` on the lefthand side menu.
+
+-   Under `branch`, select `main` as your branch and `/docs` as the folder. Select save.
+
+-   Give it a few minutes and refresh if you don't see a success message pointing to the website.
+
+-   Head to \<yourreponame\>.github.io to see if it worked!
+
+### General tips
+
+Every time you make changes locally, to have them appear on your website you need to re-render and push the changes to GitHub, i.e:
+
+-   Edit your version locally
+
+-   Render it (`quarto render` in the terminal)
+
+-   Save
+
+-   Then, in the terminal:
+
+    -   Run `git add .`
+
+    -   Run `git commit -m "<description of your changes>"`
+
+    -   Run `git push origin main`
+
+For people less familiar with Markdown syntax, the "Visual" viewer is useful! It provides a more user-friendly IDE and buttons for things like titles, bold text, lists, links, images, formatting, and tables. It is directly below the Save button on RStudio. You can toggle between Source and Visual to see the Markdown version and a more visual version of your files.
+
+I also suggest using folders to keep things organized!
+
+## Create a Professional Website
+
+Let's build on this sample Quarto website to make something more personal and professional.
+
+### Build the Template
+
+Open the `_quarto.yml` file. Let's update the contents to this (fill in \<Your Name\>):
+
+```         
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "<Your Name>"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+```
+
+### Update the Homepage
+
+The homepage is our `index.qmd` file. In our `_quarto.yml` document, we named this page "Home"! You can see this in this section:
+
+```         
+      - href: index.qmd
+        text: Home
+```
+
+Now that we've told Quarto where our homepage is, let's update it.
+
+### Add a Headshot and Link your GitHub
+
+It's useful to add a headshot to your website! At this point if you don't have a nice photo of yourself or are not comfortable adding one, just grab a stock image online of your favourite animal. (*Side note: I'd recommend getting a professional headshot if you don't have one!)*
+
+-   Create an `images` folder in your directory (same place as your `index.qmd` file), and save the image you'd like to display there. I'd recommend saving the image as `avatar.png`.
+
+We will use the `jolla` template, which is provides a nice home page for personal websites. We'll also add a link to your GitHub profile so people can see your projects.
+
+In your files, you should see `index.qmd`. Do not rename this file! Quarto knows that this is your "home page".
+
+-   Open and edit the `index.qmd` file, and fill in the appropriate information indicated in \<\>:
+
+```         
+---
+title: "<Your Name>"
+about:
+  template: jolla
+  image: images/avatar.png
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/<yourgithubusername>
+---
+```
+
+The stuff between the `---` is called the *Preamble*, which builds the foundation of the webpage.
+
+### Add your Education
+
+-   Let's add your current position (\<Current Role\> in \<Company\>) in italics (anything between the \* \* will be italicized! This will be under our photo. Let's add the following under our Preamble:
+
+```         
+*<Current Role> in <Company>*
+
+University of British Columbia 
+```
+
+Let's also make a subsection for a more detailed look at your education. Add your current and previous education under an Education header (feel free to add or remove lines):
+
+```         
+## Education
+
+Degree, School | Year
+
+Degree, School | Year
+
+Degree, School | Year
+```
+
+### Create Another Page
+
+Let's add another page that we can navigate to! Let's include our CV here.
+
+First, let's add a `cv.qmd` page to our directory. Click "File" \> "New File" \> "Quarto Document". Name this "cv.qmd". Add a title to your page, and keep all other defaults. We will be adding a page containing our CV/resume as an example, so an appropriate name could be simply "CV". We can update this later if needed.
+
+Open the new file. Update the preamble to include the date at which the page was last modified:
+
+```         
+---
+title: "CV"
+date-modified: last-modified
+---
+```
+
+Now, let's add some information! It's your turn to explore Quarto.
+
+::: {.callout-tip icon="false"}
+### Exercise: Add a CV Page
+
+-   Add a subsection (##) of your skills
+
+    -   Add a list of skills, using "-" to add items of the list on a new line.
+
+    -   *HINT: try visual mode if you cannot remember how to write links or lists in Markdown*
+
+-   Add a subsection (##) for your experience
+
+    -   Add a list of roles you've had, and a brief description.
+:::
+
+Now, the page is ready to add to our website. Open the `_quarto.yml` file and add `cv.qmd` to the list of webpages.
+
+```         
+website:
+  title: "<Your Name>"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - cv.qmd
+```
+
+Head back to `courses.qmd`, save all, and render. Do you see your new page in the navigation bar?
+
+::: {.callout-tip appearance="minimal" icon="false"}
+### Exercise: Add Another Page
+
+Follow the previous steps to add another page to your website. Here are some ideas!
+
+-   Projects (course projects (linked to your GitHub repo!), publications, conference talks, poster presentations, contributions in your role)
+
+-   Extracurriculars
+
+-   Awards
+
+-   Blog
+
+-   Miscellaneous (hobbies)
+
+Feel free to get creative. This is just practice for website building - you can always come back and update your website later. Just remember, the website is PUBLIC. Do not put any information that you do not want shared on the internet.
+:::
+
+Save all files and click the Render button. Click through your website to ensure that everything is working!
+
+### Push your Changes to Github
+
+Everything you've done so far only exists on your local machine.
+
+In the terminal, do `quarto render` to re-render all documents. Save all.
+
+Then,sStage, commit, and push your changes (Steps 7 and 8 above). Test our your new website by visiting it using the GitHub link (see Step 8).
+
+## Getting Fancy
+
+Here are some ways you can elevate your website!
+
+### Adding a Search Bar
+
+-   Add `search: true` under your `navbar` in your `_quarto.yml` file
+
+    Example:
+
+    ```         
+    website:
+      title: "<Your Name>"
+      navbar:
+        background: primary
+        search: true
+    ```
+
+### Adding Icons to Navigation Bar
+
+Sometimes, we want to use an icon instead of a work. For example, I could change "Home" to a house icon using:
+
+```         
+website:
+  title: "<Your Name>"
+  navbar:
+    background: primary
+    search: true
+    left:
+      - href: index.qmd
+        text: " "
+        icon: house-door-fill
+      - cv.qmd
+```
+
+This will remove the Home text and replace it with a home icon.
+
+### Adding a Drop-down Menu
+
+Some websites have so many pages that we need to condense topics into our top navigation bar. This can be achieved with a drop-down menu.
+
+I like to organize the website so that anything in a drop-down menu is in its own folder. Let's create a folder called "projects", where we will add information on different projects on their own page.
+
+To create a drop-down menu, we use `sidebar:` in the `_quarto.yml` document:
+
+```         
+website:
+  title: "<Your Name>"
+  navbar:
+    background: primary
+    search: true
+    left:
+      - href: index.qmd
+        text: " "
+        icon: house-door-fill
+      - cv.qmd
+      - sidebar:projects 
+```
+
+`-sidebar:projects` tells Quarto that I am going to have subpages, and I reference them using the `project` id. For example:
+
+```         
+website:
+  title: "<Your Name>"
+  navbar:
+    background: primary
+    search: true
+    left:
+      - href: index.qmd
+        text: " "
+        icon: house-door-fill
+      - cv.qmd
+      - sidebar:projects 
+        
+  sidebar:
+    - id: projects
+      title: "Projects"
+      style: "docked"
+      background: light
+      collapse-level: 2
+      contents: 
+        - webpages/projects/project1.qmd
+        - webpages/projects/project2.qmd
+```
+
+This creates a section on my Navigation Bar called "Projects", which drops down to contain `project1.qmd` and `project2.qmd`, which are regular pages like the `cv.qmd` that we created!
+
+![](/images/syllabi.png){fig-align="center"}
+
+### Add a GitHub Link on your Navigation Bar
+
+We can add a right-hand link to GitHub with its own icon. This will appear beside the search icon. In the `_quarto.yml`, add a `right:` section linking to GitHub.
+
+```         
+website:
+  title: "<Your Name>"
+  navbar:
+    background: primary
+    search: true
+    left:
+...
+...
+...
+        
+    right:
+      - href: "https://github.com/UBC-STAT/STAT545.github.io"
+        text: "GitHub"
+        icon: github
+```
+
+### Add a Table of Contents on Each Page
+
+If you have a lot of information on each page, adding a Table of Contents can be useful. In the `_quarto.yml`, add `toc: true`
+
+```         
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+```
+
+### Add a Favicon (Website Icon) and Logo
+
+*Favicons* are useful ways to brand your website. These are small icons that identify your website (think Facebook with their infamous blue "F", or Google's rainbow "F") that appear in browser tabs such as Google Chrome and on web searches.
+
+In the `_quarto.yml` file, we can include the following under `website:`
+
+```         
+website:
+      favicon: <favicon.png>
+```
+
+where \<favicon.png\> is the image (or path to the image, if its in a folder) that you'd like to use!
+
+You can also add a logo that appears in the top lefthand corner of your website using the `logo` command, for example:
+
+```         
+ navbar:
+    background: primary
+    search: true
+    logo: <yourlogo>.png
+```
+
+### Add a README to Your GitHub Repository
+
+1.  Create a Markdown file called README.rmd, and save it in your repository folder.
+2.  Include some information on the website, including the link so people who find your repository can easily access the website build.
+3.  Save all changes, and push them to GitHub.
+
+### Extras
+
+There is SO much more that Quarto can do, and this is just scratching the surface. From aesthetics to website navigation, <https://quarto.org/docs/websites/> has so many examples of cool things you can do with your website.
+
+If you'd like to see how THIS exact website was built, check out <https://github.com/UBC-STAT/STAT545.github.io>.
+
+## Quarto Slides
+
+You can also build slide decks in Quarto! We won't be getting into it in this class, but you can find the official tutorial [here](https://quarto.org/docs/presentations/).
+
+An example of a Quarto slide deck is [Lucy’s guest lecture in STAT 540](https://stat540-ubc.github.io/lectures/lect16-clustering/lect16-clustering-guest.html). This uses our preferred format, [reveal.js](https://revealjs.com/). You can download the slide deck WITH the source [here](https://www.dropbox.com/s/aataltxawu2qxn3/lec14-clustering.zip?dl=0). This is a great way to make your slide deck reproducible.
+
+## Resources
+
+-   Official tutorial for Quarto website building [here](https://quarto.org/docs/websites/).
