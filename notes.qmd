@@ -1,0 +1,8 @@
+---
+title: "Written Notes"
+format: 
+  html:
+    linkcolor: "#0000FF"
+---
+
+## Coming soon!

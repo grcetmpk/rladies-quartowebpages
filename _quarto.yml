@@ -1,0 +1,29 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: " "
+  page-footer:
+    background: light # Use a light background for the footer
+    center: "Copyright 2025, Grace Tompkins"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: notes.qmd
+        text: Written Notes
+
+    tools:
+      - icon: github
+        href: "https://github.com/grcetmpk/rladies-quartowebpages"
+
+
+format:
+  html:
+    theme:
+      - cosmo
+      - flatly
+    css: styles.css
+    toc: true
+

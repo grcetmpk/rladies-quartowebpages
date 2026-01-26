@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "RLadies+ Workshop: Webpages with Quarto",
+    "section": "",
+    "text": "In this workshop, we will learn how to create webpages using Quarto in RStudio, and host it on GitHub. The example website will be a professional website template, but these skills can also be used to create other webpages (just like this one!)\nThis workshop was designed for R coders with no prior experience with Quarto. Experience with GitHub is helpful, but not necessary. We will be going through all of the steps slowly."
+  },
+  {
+    "objectID": "index.html#workshop-details",
+    "href": "index.html#workshop-details",
+    "title": "RLadies+ Workshop: Webpages with Quarto",
+    "section": "",
+    "text": "In this workshop, we will learn how to create webpages using Quarto in RStudio, and host it on GitHub. The example website will be a professional website template, but these skills can also be used to create other webpages (just like this one!)\nThis workshop was designed for R coders with no prior experience with Quarto. Experience with GitHub is helpful, but not necessary. We will be going through all of the steps slowly."
+  },
+  {
+    "objectID": "index.html#about-the-speaker",
+    "href": "index.html#about-the-speaker",
+    "title": "RLadies+ Workshop: Webpages with Quarto",
+    "section": "About the Speaker",
+    "text": "About the Speaker\nDr. Grace Tompkins is an Assistant Professor of Teaching at the University of British Columbia and a recent PhD graduate in Biostatistics from the University of Waterloo. Her teaching focuses on building confidence in statistics and data science by creating inclusive and supportive learning environments. Outside of the classroom, Grace shares free educational content on her YouTube channel (@proftompkins) for students and the broader statistics and data science community."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  }
+]
