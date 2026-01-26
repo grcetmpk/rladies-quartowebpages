@@ -8,7 +8,7 @@ format:
 
 ## Workshop Details 
 
-In this workshop, we will learn how to create webpages using Quarto in RStudio, and host it on GitHub. The example website will be a professional website template, but these skills can also be used to create other webpages (just like this one!)
+In this workshop, we will learn how to create webpages using Quarto in RStudio, and host it on GitHub. The example website will be a professional website template ([here's mine](grcetmpk.github.io)), but these skills can also be used to create other webpages (just like this one)!
 
 This workshop was designed for R coders with no prior experience with Quarto. Experience with GitHub is helpful, but not necessary. We will be going through all of the steps slowly. 
 
