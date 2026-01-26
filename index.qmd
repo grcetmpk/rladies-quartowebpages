@@ -1,5 +1,5 @@
 ---
-title: "RLadies+ Workshop: Webpages with Quarto"
+title: "R-Ladies+ Workshop: Webpages with Quarto"
 subtitle: "March 3, 2026"
 format: 
   html:
