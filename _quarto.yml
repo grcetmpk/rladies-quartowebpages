@@ -26,4 +26,6 @@ format:
       - flatly
     css: styles.css
     toc: true
+    include-in-header: privacypolicy/google-analytics.html
+    include-after-body: privacypolicy/custom-popup.html
 

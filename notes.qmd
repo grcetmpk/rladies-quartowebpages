@@ -419,17 +419,22 @@ You can also add a logo that appears in the top lefthand corner of your website 
 2.  Include some information on the website, including the link so people who find your repository can easily access the website build.
 3.  Save all changes, and push them to GitHub.
 
-### Extras
+## Extras
 
 There is SO much more that Quarto can do, and this is just scratching the surface. From aesthetics to website navigation, <https://quarto.org/docs/websites/> has so many examples of cool things you can do with your website.
 
-If you'd like to see how THIS exact website was built, check out <https://github.com/UBC-STAT/STAT545.github.io>.
+If you'd like to see how THIS exact website was built, check out <https://github.com/grcetmpk/rladies-quartowebpages>.
+
+
+One thing I've been playing around a lot with recently is tracking **website usage**. I've created a simple template repository that allows users to opt in and out to cookie tracking via a pop up (which links to a privacy policy).
+
+You can check it out (and use!) the template here: <https://github.com/grcetmpk/quarto-website-template>.
 
 ## Quarto Slides
 
 You can also build slide decks in Quarto! We won't be getting into it in this class, but you can find the official tutorial [here](https://quarto.org/docs/presentations/).
 
-An example of a Quarto slide deck is [Lucy’s guest lecture in STAT 540](https://stat540-ubc.github.io/lectures/lect16-clustering/lect16-clustering-guest.html). This uses our preferred format, [reveal.js](https://revealjs.com/). You can download the slide deck WITH the source [here](https://www.dropbox.com/s/aataltxawu2qxn3/lec14-clustering.zip?dl=0). This is a great way to make your slide deck reproducible.
+An example of a Quarto slide deck can be found [here](https://ubc-dsci.github.io/dsci-100-slides/slides_source/04_viz.html#/title-slide). These are pretty fancy - you can take notes and code directly in them using `webr`!
 
 ## Resources
 
